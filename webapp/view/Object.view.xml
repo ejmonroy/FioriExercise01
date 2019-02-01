@@ -1,0 +1,21 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic" controllerName="df.com.training.FioriExercise01.controller.Object">
+	<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}">
+		<semantic:headerContent>
+			<ObjectHeader xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic" xmlns="sap.m" id="header0" intro="{RicefId} {Identifier}" title="{LogDesc} ({LogId})">
+				<statuses>
+					<ObjectStatus text="{=${Active}? ${i18n>objectViewActive} : ${i18n>objectViewInactive}}" state="{=${Active}? 'Success' : 'Error' }" id="status0"/>
+				</statuses>
+				<attributes>
+					<ObjectAttribute id="attribute1" text="{ProgramId}" title="{/#Parameter/ProgramId/@sap:label}"/>
+					<ObjectAttribute xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic" id="attribute2" text="{Country}" title="{/#Parameter/Country/@sap:label}"/>
+				</attributes>
+			</ObjectHeader>
+		</semantic:headerContent>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+		<semantic:content>
+			<FeedListItem icon="sap-icon://history" sender="{ChangedBy}" text="{/#Parameter/Fioty/@sap:label}: {Fioty}&#10;{/#Parameter/Fopti/@sap:label}: {Fopti}&#10;{/#Parameter/FvalLow/@sap:label}: {FvalLow}&#10;{/#Parameter/FvalHigh/@sap:label}: {FvalHigh}" info="{/#Parameter/ChangedDate/@sap:label}: {ChangedDate}" timestamp="{/#Parameter/ChangedTime/@sap:label}: {ChangedTime}" id="item7"/>
+		</semantic:content>
+	</semantic:SemanticPage>
+</mvc:View>
